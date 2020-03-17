@@ -1,0 +1,1 @@
+lib1 bwa /storage/home/users/pjt6/fish_genomes/xc/Xc_S_M_M6_3_DNA_UKDSW01700_HGV7FDSXX_L2_1.fq.gz /storage/home/users/pjt6/fish_genomes/xc/Xc_S_M_M6_3_DNA_UKDSW01700_HGV7FDSXX_L2_2.fq.gz 300 0.65 FR
