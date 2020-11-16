@@ -47,6 +47,25 @@ do
     
     /storage/home/users/pjt6/pb_fish/wtdbg2/wtdbg2 -t 16 -x rsII -g 1.2g -L 1000  -e2 -AS2 -p 19 -i ${f} -fo ${f}_MIN1000
     /storage/home/users/pjt6/pb_fish/wtdbg2/wtpoa-cns -t 16  -i ${f}_MIN1000.ctg.lay.gz -fo ${f}_MIN1000.ctg.p19_e2-AS2_L1000.lay.fa
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtdbg2 -t 16 -x rsII -g 1.2g -L 5000 -p 19 -e2 -AS2 -i ${f} -fo ${f}_MIN5000
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtpoa-cns -t 16  -i ${f}_MIN5000.ctg.lay.gz -fo ${f}_MIN5000.ctg.p19_e2-AS2_L5000.lay.fa
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtdbg2 -t 16 -x rsII -g 1.2g -L 5000 -p 20 -e2 -AS2 -i ${f} -fo ${f}_MIN5000
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtpoa-cns -t 16  -i ${f}_MIN5000.ctg.lay.gz -fo ${f}_MIN5000.ctg.p20_e2-AS2L5000.lay.fa
+     /storage/home/users/pjt6/pb_fish/wtdbg2/wtdbg2 -t 16 -x rsII -g 1.2g -L 5000  -e2 -AS2 -i ${f} -fo ${f}_MIN5000
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtpoa-cns -t 16  -i ${f}_MIN5000.ctg.lay.gz -fo ${f}_MIN5000.ctg.pdefault_e2-AS2_L5000.lay.fa
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtdbg2 -t 16 -x rsII -g 1.2g -L 4000  -e2 -AS2 -p 19 -i ${f} -fo ${f}_MIN4000
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtpoa-cns -t 16  -i ${f}_MIN4000.ctg.lay.gz -fo ${f}_MIN4000.ctg.p19_e2-AS2_L4000.lay.fa
+    
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtdbg2 -t 16 -x rsII -g 1.2g -L 1000  -e2 -AS2 -p 19 -i ${f} -fo ${f}_MIN1000
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtpoa-cns -t 16  -i ${f}_MIN1000.ctg.lay.gz -fo ${f}_MIN1000.ctg.p19_e2-AS2_L1000.lay.fa
+
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtdbg2 -t 16 -x rsII -g 1.2g -L 2000  -e2 -AS2 -p 19 -i ${f} -fo ${f}_MIN2000
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtpoa-cns -t 16  -i ${f}_MIN2000.ctg.lay.gz -fo ${f}_MIN2000.ctg.p19_e2-AS2_L2000.lay.fa
+    
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtdbg2 -t 16 -x rsII -g 1.2g -L 3000  -e2 -AS2 -p 19 -i ${f} -fo ${f}_MIN3000
+    /storage/home/users/pjt6/pb_fish/wtdbg2/wtpoa-cns -t 16  -i ${f}_MIN3000.ctg.lay.gz -fo ${f}_MIN3000.ctg.p19_e2-AS2_L3000.lay.fa
+done
+
 done
 
 
