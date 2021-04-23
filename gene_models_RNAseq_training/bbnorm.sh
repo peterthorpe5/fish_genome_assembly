@@ -7,8 +7,8 @@ in=R1.fq.gz
 in2=R2.fq.gz
 prefilter
 target=100 min=5
-out=bbnorm_R1.fq
-out2=bbnorm_R2.fq
+out=bbnorm_R1.fq.gz
+out2=bbnorm_R2.fq.gz
 -Xmx240G
 tmpdir=$HOME
 threads=12"
