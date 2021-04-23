@@ -7,11 +7,11 @@ in=R1.fq.gz
 in2=R2.fq.gz
 prefilter
 target=100 min=5
-out=bbnomr_R1.fq
-out2=bbnomr_R2.fq
+out=bbnorm_R1.fq
+out2=bbnorm_R2.fq
 -Xmx240G
 tmpdir=$HOME
-threads=32"
+threads=12"
 echo ${norm} 
 eval ${norm}
 
