@@ -1,21 +1,21 @@
 #!/bin/bash -l
-#SBATCH -J CB_funan   #jobname
+#SBATCH -J XC_funan   #jobname
 #SBATCH --partition=long
-#SBATCH --cpus-per-task=30
+#SBATCH --cpus-per-task=26
 #SBATCH --mem=80GB
-cd /home/pthorpe/scratch/gene_annotations/CB
+cd /home/pthorpe/scratch/gene_annotations/XC
 conda activate funannotate1.8.7
 
 ###########################
 # variables
-genome="Cb_V1.0.softmasked.fasta"
-threads=30
+genome="Xc_V1.1.softmasked.fasta"
+threads=26
 left="R1.fq.gz"
 right="R2.fq.gz"
-name="CRENBAI"
-species="Crenichthys_baileyi" # two words
+name="XENOCAPTIV"
+species="Xenoophorus_captivus" # two words
 strain="V.1.0" # ,ust put a strain
-out_folder="cb_funannotate"
+out_folder="XC_funannotate"
 max_intron_len=15000
 RM_lib="consensi.fa.classified"
 
@@ -37,14 +37,12 @@ RM_lib="consensi.fa.classified"
 # 4) train. run trinity and pasa. # if you have stranded --stranded RF,  tight gene density --jaccard_clip,  --nanopore_mrna nanopore_mRNA.fq.gz
 # no enough ram on this machine to run trinity
 train="funannotate train 
---left_norm  bbnomr_R1.fq.gz
---right_norm  bbnomr_R2.fq.gz
     -i ${genome}.tantan -o ${out_folder} --left ${left}  --right ${right} 
 	--trinity trinity.fasta --species ${species} --cpus ${threads} 
 	--strain ${strain} --max_intronlen ${max_intron_len}  
-    --TRINITYHOME /mnt/shared/scratch/pthorpe/apps/conda/envs/funannotate1.8.7/bin/Trinity"
+    --TRINITYHOME /mnt/shared/scratch/pthorpe/apps/conda/envs/funannotate/bin/Trinity"
 echo ${train}
-eval ${train}
+#eval ${train}
 
  have to run TE beofre now:
  
@@ -57,7 +55,7 @@ eval ${train}
 # cat *fasta_tRNAscan.out > ../cb_funannotate/predict_misc/tRNAscan.out
 
 predict=" funannotate predict
--i ${genome} -o ${out_folder} 
+-i ${genome}.tantan -o ${out_folder} 
     --species  ${species} 
     --strain ${strain} --cpus ${threads} 
     --max_intronlen ${max_intron_len} 
@@ -65,8 +63,9 @@ predict=" funannotate predict
     --busco_db  eukaryota
     --name ${name}
     --ploidy 2
-    --weights codingquarry:0
-	--organism other --augustus_species Crenichthys_baileyi_BUSCO2
+    --weights codingquarry:0 glimmerhmm:0  snap:0 genemark:0
+    --optimize_augustus
+	--organism other --augustus_species XC_PASA2
 	--rna_bam *.bam
     --SeqCenter SEQ_CENTR_TO_BE_FILLED_IN
     --keep_evm
@@ -77,7 +76,7 @@ eval ${predict}
 	# possible run with this option --repeats2evm
 
 # 6) if have RNAseq update with get the UTR predctions.
-funannotate update --left_norm bbnomr_R1.fq.gz --right_norm bbnomr_R2.fq.gz --no_trimmomatic --no_normalize_reads -i ${out_folder} --cpus ${threads} --max_intronlen  15000 --TRINITYHOME /mnt/shared/scratch/pthorpe/apps/conda/envs/funannotate1.8.7/bin/Trinity
+funannotate update --left_norm bbnorm_R1.fq.gz --right_norm bbnorm_R2.fq.gz --no_trimmomatic --no_normalize_reads -i ${out_folder} --cpus ${threads} --max_intronlen  15000 --TRINITYHOME /mnt/shared/scratch/pthorpe/apps/conda/envs/funannotate/bin/Trinity
 
 #funannotate util gff2tbl --gff3 GROS_renamed.gff3  -f GROS_nanopore_v1.0.softmasked.fasta > GROS.tbl
 
